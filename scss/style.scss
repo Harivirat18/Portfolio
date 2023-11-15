@@ -16,36 +16,37 @@ html, body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:20px 40px;
+    padding:20px 5px;
     background-color: black;
     position: fixed;
     width: 100%;
     z-index: 1;
-    box-shadow: 0px 0px 25px gray;
+    box-shadow: 0px 0px 10px gray;
     .nav-left{
         padding: 0px 10px;
         color: white;
         span{
-            font-size: 18px;
-            opacity: 1;
-            animation: animate 2s linear forwards;
             display: inline-block;
-            letter-spacing: 5px;
-        }
-        @keyframes animate {
-            0%{
-                opacity: 0;
-                transform: rotateY(90deg);
-                filter: blur(10px);
+            position: relative;
+            font-size: 21px;
+            letter-spacing: 3px;
+            &::after{
+                position:absolute;
+                content:"";
+                left:0;
+                height:100%;
+                width:100%;
+                background-color:black;
+                border-left:2px solid gray;
+                animation:type 3s steps(15) infinite;
             }
-            100%{
-                opacity: 1;
-                transform: rotateY(0deg);
-                filter: blur(0);
+            @keyframes type{
+                100%{
+                    left:100%;
+                }
             }
-            
         }
-    }
+        }
     .nav-right{
         padding: 0px 10px;
         ul{
@@ -108,34 +109,26 @@ html, body{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content:space-around;
-    background-color: skyblue;
-    opacity: 0.6;
+    justify-content:space-evenly;
+    background:linear-gradient(-45deg, white 45%, black 0%);
     .content-left{
+        h1{
+            font-size: 25px;
+            color: white;
+        }
         h2{
-            display: inline-block;
-            position: relative;
-            font-size: 40px;
-            &::after{
-                position:absolute;
-                content:"";
-                left:0;
-                height:100%;
-                width:100%;
-                background-color:skyblue;
-                border-left:2px solid green;
-                animation:type 5s steps(15) infinite;
-            }
-            @keyframes type{
-                100%{
-                    left:100%;
-                    margin: 0 0px 0 20px;
-                }
+            font-size: 60px;
+            span{
+                color: orange;
+                font-weight: bold;
             }
         }
         h4{
-            font-size: 20px;
+            font-size: 30px;
             padding: 10px 0px;
+            span{
+                color: red;
+            }
         }
         a{
             color: black;
@@ -145,9 +138,18 @@ html, body{
         i{
             padding-right: 10px;
         }
+        b{
+            font-size: 20px;
+        }
     }
     .content-right{
         margin-top: 20px;
+        img{
+            width: 300px;
+            height: 300px;
+            border-radius:50%;
+            box-shadow:0px 0px 10px white;
+        }
     }
 }
 
@@ -414,6 +416,14 @@ footer{
     }
     .out a{
         padding:0px 3px;
+    }
+    .home{
+        background:none;
+        .content-left{
+            h1{
+                color: black !important;
+            }
+        }
     }
 }
  @media (min-width:769px) {
